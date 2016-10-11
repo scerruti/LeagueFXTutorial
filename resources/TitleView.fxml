@@ -1,7 +1,6 @@
 <!--
   ~ Copyright (c) 2016. The League of Amazing Programmers, All Rights Reserved
   -->
-
 <?import javafx.scene.layout.StackPane?>
 <StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="TitleController">
 </StackPane>
