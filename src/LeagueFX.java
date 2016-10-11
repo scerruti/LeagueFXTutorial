@@ -5,11 +5,13 @@
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * LeagueFX is the main class for the Java FX port of the League Invaders game.
@@ -24,9 +26,17 @@ public class LeagueFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("TitleView.fxml"));
-        primaryStage.setTitle("Invasion");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        URL location = getClass().getResource("TitleView.fxml");
+        ResourceBundle resources = ResourceBundle.getBundle("leagueFX");
+        FXMLLoader loader = new FXMLLoader(location, resources);
+
+        Pane titlePane = loader.load();
+
+        primaryStage.setTitle(resources.getString("title"));
+
+        Scene titleScene = new Scene(titlePane);
+        titleScene.getStylesheets().add(getClass().getResource("leagueFX.css").toExternalForm());
+        primaryStage.setScene(titleScene);
 
         primaryStage.setOnCloseRequest(event -> Platform.exit());
 
