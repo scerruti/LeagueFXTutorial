@@ -39,5 +39,7 @@ public class LeagueFX extends Application {
         primaryStage.setTitle(resources.getString("title"));
         primaryStage.show();
 
+        titlePane.requestFocus();
+
     }
 }
