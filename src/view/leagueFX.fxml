@@ -1,3 +1,0 @@
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:controller="controller.LeagueFX" xmlns:fx="http://javafx.com/fxml" >
-</AnchorPane>
