@@ -29,17 +29,14 @@ public class LeagueFX extends Application {
         URL location = getClass().getResource("TitleView.fxml");
         ResourceBundle resources = ResourceBundle.getBundle("leagueFX");
         FXMLLoader loader = new FXMLLoader(location, resources);
-
         Pane titlePane = loader.load();
-
-        primaryStage.setTitle(resources.getString("title"));
 
         Scene titleScene = new Scene(titlePane);
         titleScene.getStylesheets().add(getClass().getResource("leagueFX.css").toExternalForm());
         primaryStage.setScene(titleScene);
 
         primaryStage.setOnCloseRequest(event -> Platform.exit());
-
+        primaryStage.setTitle(resources.getString("title"));
         primaryStage.show();
 
     }
