@@ -29,6 +29,6 @@ public class TitleController {
     }
 
     public void handlePlayButtonAction(ActionEvent actionEvent) {
-        System.out.println("Button pressed.");
+        LeagueFX.startGame();
     }
 }
