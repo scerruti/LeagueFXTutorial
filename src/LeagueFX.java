@@ -46,32 +46,30 @@ public class LeagueFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        this.primaryStage = primaryStage;
         resources = ResourceBundle.getBundle("leagueFX");
 
         Pane titlePane = getPane(resources, "TitleView.fxml");
-        Scene titleScene = new Scene(titlePane);
-        titleScene.getStylesheets().add(getClass().getResource("leagueFX.css").toExternalForm());
-        this.primaryStage = primaryStage;
-        this.primaryStage.setScene(titleScene);
 
         primaryStage.setOnCloseRequest(event -> Platform.exit());
         primaryStage.setTitle(resources.getString("title"));
         primaryStage.show();
 
-        titlePane.requestFocus();
-
     }
 
     private void loadGame() throws IOException {
-        Pane titlePane = getPane(resources, "GameView.fxml");
-        Scene titleScene = new Scene(titlePane);
-        titleScene.getStylesheets().add(getClass().getResource("leagueFX.css").toExternalForm());
-        primaryStage.setScene(titleScene);
+        Pane gamePane = getPane(resources, "GameView.fxml");
     }
 
     private Pane getPane(ResourceBundle resources, String view) throws IOException {
+        Pane pane;
         URL location = getClass().getResource(view);
         FXMLLoader loader = new FXMLLoader(location, resources);
-        return loader.load();
+        pane = loader.load();
+        Scene scene = new Scene(pane);
+        scene.getStylesheets().add(getClass().getResource("leagueFX.css").toExternalForm());
+        primaryStage.setScene(scene);
+        pane.requestFocus();
+        return pane;
     }
 }

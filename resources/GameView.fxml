@@ -4,11 +4,11 @@
   ~ Copyright (c) 2016. The League of Amazing Programmers, All Rights Reserved
   -->
 
-
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="400.0" prefWidth="600.0"
-            stylesheets="@leagueFX.css" xmlns="http://javafx.com/javafx/8.0.102-ea" fx:controller="GameController">
-    <Pane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
-          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" onKeyPressed="#keyPressed" stylesheets="@leagueFX.css"
+            xmlns="http://javafx.com/javafx/8.0.102-ea" fx:controller="GameController">
+    <Pane fx:id="gamePane" prefHeight="Infinity" prefWidth="Infinity" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+    </Pane>
 </AnchorPane>
