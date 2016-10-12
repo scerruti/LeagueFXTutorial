@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 
 public class GameController {
 
-    private final LongProperty timeProperty = new SimpleLongProperty();
+    private final LongProperty frameTime = new SimpleLongProperty();
 
     @FXML
     public Pane gamePane;
@@ -21,17 +21,23 @@ public class GameController {
 
     @FXML
     public void initialize() {
-
-        ship = new Ship(gamePane);
+        ship = new Ship(this);
         gamePane.getChildren().add(ship);
 
         new AnimationTimer() {
             @Override
             public void handle(long now) {
-                timeProperty.set(now);
+                frameTime.set(now);
             }
         }.start();
+    }
 
+    long getFrameTime() {
+        return frameTime.get();
+    }
+
+    LongProperty frameTimeProperty() {
+        return frameTime;
     }
 
     public void keyPressed(KeyEvent keyEvent) {
@@ -49,7 +55,7 @@ public class GameController {
                 ship.moveRight();
                 break;
             case SPACE:
-                //ship.fire();
+                ship.fire();
                 break;
             case UP:
                 ship.moveUp();
@@ -57,5 +63,9 @@ public class GameController {
             default:
                 break;
         }
+    }
+
+    void add(Projectile projectile) {
+        gamePane.getChildren().add(projectile);
     }
 }

@@ -3,36 +3,43 @@
  */
 
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+class Ship extends GameObject {
 
-class Ship extends ImageView {
-
-    private static final int SPEED = 10;
-    private static Pane gamePane;
-
-    Ship(Pane gamePane) {
-        Ship.gamePane = gamePane;
-
-        this.setImage(new Image("rocket.png"));
-        this.setPreserveRatio(true);
-        this.setFitHeight(50);
+    Ship(GameController gameController) {
+        super(gameController);
     }
 
     void moveUp() {
-        this.setY(this.getY() - SPEED);
+        this.setY(this.getY() - speed);
     }
 
     void moveDown() {
-        this.setY(this.getY() + SPEED);
+        this.setY(this.getY() + speed);
     }
 
     void moveLeft() {
-        this.setX(this.getX() - SPEED);
+        this.setX(this.getX() - speed);
     }
 
     void moveRight() {
-        this.setX(this.getX() + SPEED);
+        this.setX(this.getX() + speed);
+    }
+
+    void fire() {
+        Projectile p = new Projectile(gameController);
+        p.setX(this.getX());
+        p.setY(this.getY());
+        gameController.add(p);
+
+    }
+
+    @Override
+    int getHeight() {
+        return 50;
+    }
+
+    @Override
+    String getImageURL() {
+        return "rocket.png";
     }
 }
