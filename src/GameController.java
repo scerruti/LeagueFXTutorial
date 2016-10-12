@@ -23,11 +23,13 @@ public class GameController {
     public void initialize() {
         ship = new Ship(this);
         gamePane.getChildren().add(ship);
+        System.out.format(">%f %f\n", gamePane.getWidth(), gamePane.getHeight());
 
         new AnimationTimer() {
             @Override
             public void handle(long now) {
                 frameTime.set(now);
+
             }
         }.start();
     }
@@ -67,5 +69,9 @@ public class GameController {
 
     void add(Projectile projectile) {
         gamePane.getChildren().add(projectile);
+    }
+
+    public Pane getGamePane() {
+        return gamePane;
     }
 }

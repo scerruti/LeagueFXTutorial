@@ -13,7 +13,7 @@ abstract class GameObject extends ImageView {
         this.gameController = gameController;
 
         this.setImage(new Image(getImageURL()));
-        this.setFitHeight(getHeight());
+        this.setFitHeight(getPresetHeight());
         this.setPreserveRatio(true);
 
         gameController.frameTimeProperty().addListener((observable, oldValue, newValue) -> {
@@ -28,7 +28,7 @@ abstract class GameObject extends ImageView {
         // No action by default
     }
 
-    abstract int getHeight();
+    abstract long getPresetHeight();
 
     abstract String getImageURL();
 

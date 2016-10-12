@@ -14,7 +14,7 @@ class Projectile extends GameObject {
     }
 
     @Override
-    int getHeight() {
+    long getPresetHeight() {
         return 15;
     }
 
